@@ -18,7 +18,7 @@ CREATE TABLE "ArkCliente"
 	"telefone2" VARCHAR2(15 BYTE), 
 	"idEndereco" NUMBER NOT NULL ENABLE,  
 	 CONSTRAINT "ArkClientePJ_PK" PRIMARY KEY ("id"),
-	 CONTRAINT "ArkClienteEnderecoFK" FOREIGN KEY ("idEndereco")
+	 CONSTRAINT "ArkClienteEnderecoFK" FOREIGN KEY ("idEndereco")
 	 	REFERENCES "ArkEndereco" ("id")
 	);
 
@@ -55,7 +55,7 @@ CREATE TABLE "ArkProduto"
 CREATE SEQUENCE ARKPRODUTO_SEQ INCREMENT BY 1 START WITH 1 NOCACHE NOCYCLE;
 
 
-CREATE TABLE "SYSTEM"."ArkPedido" 
+CREATE TABLE "ArkPedido" 
    (
     "id" NUMBER NOT NULL ENABLE, 
 	"valorTotal" NUMBER(*,0) NOT NULL ENABLE, 
@@ -66,7 +66,7 @@ CREATE TABLE "SYSTEM"."ArkPedido"
 CREATE SEQUENCE ARKPEDIDO_SEQ INCREMENT BY 1 START WITH 1 NOCACHE NOCYCLE;
 
 
-CREATE TABLE "SYSTEM"."ArkPedidoProduto"
+CREATE TABLE "ArkPedidoProduto"
   ( 
     "idPedido" NUMBER NOT NULL ENABLE,
     "idProduto" NUMBER NOT NULL ENABLE,
@@ -74,6 +74,6 @@ CREATE TABLE "SYSTEM"."ArkPedidoProduto"
     CONSTRAINT "ArkPedidoProduto_PK" PRIMARY KEY ("idPedido","idProduto"),
     CONSTRAINT "ArkPedidoFK" FOREIGN KEY ("idPedido")
      	REFERENCES "ArkPedido" ("id"),
-    CONSTRAINT "ArkProdutoFK" (id) FOREIGN KEY ("idProduto")
+    CONSTRAINT "ArkProdutoFK" FOREIGN KEY ("idProduto")
      	REFERENCES "ArkProduto" ("id")
     );
